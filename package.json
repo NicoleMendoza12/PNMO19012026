@@ -1,24 +1,14 @@
 {
   "name": "pnmo19012026",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Sistema de gestión de clientes con Node.js, Express y MongoDB",
+  "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "nodemon server.js",
+    "dev": "nodemon server.js",
+    "prod": "node server.js"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "type": "commonjs",
-  "dependencies": {
-    "bcrypt": "^6.0.0",
-    "cors": "^2.8.5",
-    "dotenv": "^17.2.3",
-    "express": "^5.2.1",
-    "jsonwebtoken": "^9.0.3",
-    "mongoose": "^9.1.4"
-  },
-  "devDependencies": {
-    "nodemon": "^3.1.11"
-  }
+  "keywords": ["nodejs", "express", "mongodb", "jwt", "crud"],
+  "author": "PNMO",
+  "license": "ISC"
 }
