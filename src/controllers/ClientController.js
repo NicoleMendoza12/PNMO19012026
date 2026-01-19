@@ -127,7 +127,7 @@ exports.updateClient = async (req, res) => {
     }
 };
 
-/
+
 exports.deleteClient = async (req, res) => {
     try {
         const client = await Client.findByIdAndDelete(req.params.id);
