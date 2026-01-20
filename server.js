@@ -1,10 +1,15 @@
 const express = require('express');
 const cors = require('cors');
 const connectDB = require('./src/config/database');
-const authRoutes = require('./src/routes/authRoutes');
+
+
+
+const authRoutes = require('./src/routes/authRoutes');   
 const clientRoutes = require('./src/routes/ClientRoutes');
 
 const app = express();
+
+
 const PORT = process.env.PORT || 3000;
 
 
@@ -22,21 +27,9 @@ app.use('/api/clients', clientRoutes);
 
 app.get('/', (req, res) => {
     res.json({
+        success: true,
         message: 'API PNMO19012026 - Sistema de Gestión de Clientes',
-        version: '1.0.0',
-        endpoints: {
-            auth: {
-                register: 'POST /api/auth/register',
-                login: 'POST /api/auth/login'
-            },
-            clients: {
-                create: 'POST /api/clients',
-                getAll: 'GET /api/clients',
-                getById: 'GET /api/clients/:id',
-                update: 'PUT /api/clients/:id',
-                delete: 'DELETE /api/clients/:id'
-            }
-        }
+        version: '1.0.0'
     });
 });
 
@@ -44,11 +37,13 @@ app.get('/', (req, res) => {
 app.use((req, res) => {
     res.status(404).json({
         success: false,
-        message: 'Ruta no encontrada'
+        message: 'La ruta solicitada no existe'
     });
 });
 
 
 app.listen(PORT, () => {
-    console.log(` Servidor corriendo en http://localhost:${PORT}`);
+    console.log(`\n🚀 Servidor listo en: http://localhost:${PORT}`);
+    console.log(`📂 Rutas de autenticación: http://localhost:${PORT}/api/auth`);
+    console.log(`📂 Rutas de clientes: http://localhost:${PORT}/api/clients\n`);
 });
